@@ -1,0 +1,29 @@
+@import 'utils';
+
+.todo-input {
+    display: flex;
+    padding: 1rem;
+  
+    .add-button {
+        width: 5rem;
+        height: 2rem;
+        margin-left: 1rem;
+        border:  1px solid $oc-violet-7;
+        color: $oc-violet-7;
+        font-weight:400;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        border-radius:5px;
+        justify-content: center;
+        cursor: pointer;
+        margin: 0 auto;
+        &:hover {
+            background: $oc-violet-7;
+            color: white;
+        }
+        &:active {
+            background: $oc-violet-8;
+        }
+    }
+}

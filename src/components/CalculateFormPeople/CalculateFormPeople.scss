@@ -1,0 +1,33 @@
+@import 'utils';
+
+.todo-input {
+    position: relative;
+    border-bottom: 1px solid $oc-violet-1;
+    display: flex;
+    padding: 1rem;
+    input {
+        flex: 1;
+        font-size:1.1rem;
+        outline: none;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid $oc-violet-2;
+        color:$oc-violet-9;
+        &:focus {
+            border-bottom: 1px solid $oc-violet-4;
+        }
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $oc-violet-1;
+            opacity: 1; /* Firefox */
+        }
+    }
+    .add-name {
+        margin-left: 1rem;
+        cursor: pointer;
+        &:active {
+            color: $oc-violet-8;
+        }
+    }
+
+  
+}

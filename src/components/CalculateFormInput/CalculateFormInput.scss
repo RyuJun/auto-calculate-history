@@ -1,0 +1,45 @@
+@import 'utils';
+
+.todo-input {
+    border-bottom: 1px solid $oc-violet-1;
+    display: flex;
+    padding: 1rem;
+    input {
+        flex: 1;
+        font-size:1.1rem;
+        outline: none;
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid $oc-violet-2;
+        color:$oc-violet-9;
+        &:focus {
+            border-bottom: 1px solid $oc-violet-4;
+        }
+        &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+            color: $oc-violet-1;
+            opacity: 1; /* Firefox */
+        }
+    }
+    
+    .add-button {
+        width: 5rem;
+        height: 2rem;
+        margin-left: 1rem;
+        border:  1px solid $oc-violet-7;
+        color: $oc-violet-7;
+        font-weight:400;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        border-radius:5px;
+        justify-content: center;
+        cursor: pointer;
+        &:hover {
+            background: $oc-violet-7;
+            color: white;
+        }
+        &:active {
+            background: $oc-violet-8;
+        }
+    }
+}
