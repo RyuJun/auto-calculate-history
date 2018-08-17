@@ -15,7 +15,7 @@ const CalculateFormPeople = ({ value, handleChange, handleAddName, handleKeyPres
     
     return (
         <div className={cx('todo-input')}>
-            <input id={3} placeholder="이름 ex) 범신" value={value} onChange={handleChange} onKeyPress={handleKeyPress}/>
+            <input id={3} placeholder="이름" value={value} onChange={handleChange} onKeyPress={handleKeyPress}/>
             <FontAwesomeIcon icon="user-plus" size="2x" color="#9775fa" className={cx('add-name')} onClick={handleAddName}/>
         </div>
     );

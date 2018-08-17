@@ -5,10 +5,13 @@ import classNames from 'classnames/bind'
 
 const cx = classNames.bind(styles);
 
+
+
 const CalculateAddBtn = ({ onSave }) => {
+  
   return (
     <div className={cx('todo-input')}>
-        <div className={cx('add-button')} onClick={onSave}>
+        <div className={cx('add-button')} onClick={(e) => onSave(false)}>
           저장  
         </div>
     </div>

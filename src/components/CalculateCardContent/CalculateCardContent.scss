@@ -1,0 +1,52 @@
+@import 'utils';
+td {
+    border-bottom:1px solid $oc-violet-2;
+    padding:0.5rem;
+    height:3rem;
+}
+.check-button {
+    width: 5rem;
+    height: 2rem;
+    border:  1px solid $oc-violet-7;
+    color: $oc-violet-7;
+    font-weight:400;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    border-radius:5px;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 auto;
+
+    &:hover {
+        background: $oc-violet-7;
+        color: white;
+    }
+    &:active {
+        background: $oc-violet-8;
+    }
+}
+.check-ok-button {
+    width: 5rem;
+    height: 2rem;
+    border:  1px solid $oc-violet-7;
+    background: $oc-violet-7;
+    color: white;
+    font-weight:400;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    border-radius:5px;
+    justify-content: center;
+    cursor: pointer;
+    margin: 0 auto;
+
+    &:hover {
+        background:white;
+        color: $oc-violet-7;
+    }
+    &:active {
+        color: $oc-violet-7;
+        background: white;
+    }
+}

@@ -1,0 +1,44 @@
+@import 'utils';
+
+.filter-wrap {
+    position:absolute;
+    right:1rem;
+    top:2rem;
+    width:230px;
+    display:flex;
+    border:1px solid $oc-violet-8;
+    border-radius: 5px;
+    background:$oc-violet-6;
+    .filter-item {
+        flex: 1;
+        background: white;
+        width:auto;
+        text-align:center;
+        color:$oc-violet-9;
+        padding:0.3rem;
+        font-size:0.8rem;
+        font-weight: 400;
+        cursor:pointer;
+        &:first-child {
+            border-right: 1px solid $oc-violet-9;
+            border-top-left-radius : 5px;
+            border-bottom-left-radius : 5px;
+            flex: 1;
+        }
+        &:last-child {
+            border-left: 1px solid $oc-violet-9;
+            border-top-right-radius : 5px;
+            border-bottom-right-radius : 5px;
+            flex: 1;
+        }
+        &:hover {
+            background: $oc-violet-6;
+            margin-top:1px;
+            color:white;
+        }
+    }
+    .filterActive {
+        background: $oc-violet-8;
+        color:white;
+    }
+}
