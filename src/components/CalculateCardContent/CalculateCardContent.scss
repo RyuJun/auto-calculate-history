@@ -17,14 +17,6 @@ td {
     justify-content: center;
     cursor: pointer;
     margin: 0 auto;
-
-    &:hover {
-        background: $oc-violet-7;
-        color: white;
-    }
-    &:active {
-        background: $oc-violet-8;
-    }
 }
 .check-ok-button {
     width: 5rem;
@@ -40,13 +32,4 @@ td {
     justify-content: center;
     cursor: pointer;
     margin: 0 auto;
-
-    &:hover {
-        background:white;
-        color: $oc-violet-7;
-    }
-    &:active {
-        color: $oc-violet-7;
-        background: white;
-    }
 }
