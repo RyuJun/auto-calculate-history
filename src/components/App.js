@@ -188,6 +188,20 @@ class App extends Component {
             card : selectCard 
         });
     }
+    handleRemove = (index) => {
+        const confirm = window.confirm('정말 삭제 할꺼에요?');
+        if(confirm) {
+            const { card } = this.state;
+            let nextCard = [...card];
+            nextCard = nextCard.filter(item => item.id !== index+1);
+            nextCard.map((item, i) => item.id = i+1);
+            this.setState({
+                card : nextCard
+            },() => {
+                localStorage.setItem(`cardList`,JSON.stringify(this.state.card));
+            });    
+        }
+    }
     handleChecked = (index, id) => {
         const { card } = this.state;
         let nextCard = [...card];
@@ -211,20 +225,20 @@ class App extends Component {
         this.setState({ filter:type });
     }
     render() {
-        const { handleChange, handleAddName, handleRemoveName, handleKeyPress, handleOnActive, handleSliderOnChange, handleOnSave, handleOnActiveList, handleChecked, handleOnCompletion, handleFilter } = this;
+        const { handleChange, handleAddName, handleRemoveName, handleKeyPress, handleOnActive, handleSliderOnChange, handleOnSave, handleOnActiveList, handleChecked, handleOnCompletion, handleFilter, handleRemove } = this;
         const { input, date, allprice, name, filter, card } = this.state;
         const selectPeople = this.state.people.filter((item) => item.active === true);
         const hashBtn = this.state.people.map((item) => <CalculateHashName key={item.id} index={item.id} name={item.name} price={item.price} percentage={item.percentage} active={item.active} handleRemoveName={handleRemoveName} onActive={handleOnActive}/> );
         const cardSetting = card.map((item, i) => {
             if(filter === 'all'){
-                return <CalculateCard key={i} index={i} allprice={item.allprice} completion={item.completion} date={item.date} input={item.input} people={item.people} active={item.active} changeActive={handleOnActiveList} handleChecked={handleChecked} onSave={handleOnSave} onCompletion={handleOnCompletion} />
+                return <CalculateCard key={i} index={i} allprice={item.allprice} completion={item.completion} date={item.date} input={item.input} people={item.people} active={item.active} changeActive={handleOnActiveList} handleChecked={handleChecked} onSave={handleOnSave} onCompletion={handleOnCompletion} onRemove={handleRemove} />
             }else if(filter === 'progress'){
                 if(!item.completion){
-                    return <CalculateCard key={i} index={i} allprice={item.allprice} completion={item.completion} date={item.date} input={item.input} people={item.people} active={item.active} changeActive={handleOnActiveList} handleChecked={handleChecked} onSave={handleOnSave} onCompletion={handleOnCompletion} />
+                    return <CalculateCard key={i} index={i} allprice={item.allprice} completion={item.completion} date={item.date} input={item.input} people={item.people} active={item.active} changeActive={handleOnActiveList} handleChecked={handleChecked} onSave={handleOnSave} onCompletion={handleOnCompletion}  onRemove={handleRemove}/>
                 }
             }else if(filter === 'close'){
                 if(item.completion){
-                    return <CalculateCard key={i} index={i} allprice={item.allprice} completion={item.completion} date={item.date} input={item.input} people={item.people} active={item.active} changeActive={handleOnActiveList} handleChecked={handleChecked} onSave={handleOnSave} onCompletion={handleOnCompletion} />
+                    return <CalculateCard key={i} index={i} allprice={item.allprice} completion={item.completion} date={item.date} input={item.input} people={item.people} active={item.active} changeActive={handleOnActiveList} handleChecked={handleChecked} onSave={handleOnSave} onCompletion={handleOnCompletion}  onRemove={handleRemove}/>
                 }
             }
             return null;

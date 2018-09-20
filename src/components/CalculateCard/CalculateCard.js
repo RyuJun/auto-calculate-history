@@ -12,11 +12,11 @@ library.add(faChevronUp, faChevronDown, faCheck);
 
 const cx = classNames.bind(styles);
 
-const CalculateCard = ({ index, allprice, date, input, people, changeActive, active, completion, handleChecked, onSave, onCompletion }) => {
+const CalculateCard = ({ index, allprice, date, input, people, changeActive, active, completion, handleChecked, onSave, onCompletion, onRemove }) => {
   const peopleSetting = people.map((item, i)=> <CalculateCardContent key={i} index={index} id={item.id} name={item.name} percentage={item.percentage} price={item.price} checked={item.checked} handleChecked={handleChecked} />);
   const peopleDel = people.find( (el) => el.checked === false);
   return (
-    <div className={cx('page-template')}>
+    <div className={cx('page-template')} onDoubleClick={(e) => {onRemove(index)}}>
       {completion &&
         <div className={cx('page-completion')} onClick={(e) => changeActive(index+1, active ? false : true )} >
           <FontAwesomeIcon icon="check" size="2x" color="#fff" />
