@@ -8,6 +8,8 @@ import CalculateAddBtn from './CalculateAddBtn';
 import CalculateCard from './CalculateCard';
 import CalculateFilter from './CalculateFilter';
 
+import CreateBy from './CreateBy';
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -224,8 +226,17 @@ class App extends Component {
     handleFilter = (type) =>{
         this.setState({ filter:type });
     }
+    handleClipboard = () => {
+        let t = document.createElement("textarea");
+        document.body.appendChild(t);
+        t.value = 'ghew401@naver.com';
+        t.select();
+        document.execCommand('copy');
+        document.body.removeChild(t);
+        alert('클립보드로 복사 되었습니다.');
+    }
     render() {
-        const { handleChange, handleAddName, handleRemoveName, handleKeyPress, handleOnActive, handleSliderOnChange, handleOnSave, handleOnActiveList, handleChecked, handleOnCompletion, handleFilter, handleRemove } = this;
+        const { handleChange, handleAddName, handleRemoveName, handleKeyPress, handleOnActive, handleSliderOnChange, handleOnSave, handleOnActiveList, handleChecked, handleOnCompletion, handleFilter, handleRemove, handleClipboard } = this;
         const { input, date, allprice, name, filter, card } = this.state;
         const selectPeople = this.state.people.filter((item) => item.active === true);
         const hashBtn = this.state.people.map((item) => <CalculateHashName key={item.id} index={item.id} name={item.name} price={item.price} percentage={item.percentage} active={item.active} handleRemoveName={handleRemoveName} onActive={handleOnActive}/> );
@@ -255,6 +266,7 @@ class App extends Component {
                     { this.state.people.length > 0 && <CalculateAddBtn onSave={handleOnSave} /> }
                 </PageTemplate>
                 {cardSetting}
+                <CreateBy handleClipboard={handleClipboard}/>
             </Fragment>
         );
     }
